@@ -2,10 +2,14 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as go from 'gojs';
 import * as _ from 'lodash';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { FileService } from './file.service';
+import {saveAs} from 'file-saver';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[FileService]
 })
 export class AppComponent {
   imageShown: boolean;
@@ -35,8 +39,8 @@ public barChartData:any[] = [
   {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
 ];
-
-  constructor() {
+attachmentList:any = [];
+  constructor(private _fileService:FileService, private http:HttpClient) {
 
   }
   public chartClickedGrafica(e:any):void {
@@ -290,5 +294,23 @@ public barChartData:any[] = [
       }
     }
     return obj;
+  }
+  exportDiag($event){
+    this.saveFile();
+  }
+  saveFile() {
+    const headers = new Headers();
+    headers.append('Accept', 'text/plain');
+    this.http.get('/',{
+      responseType : 'blob',
+      headers:new HttpHeaders().append('Accept', 'text/plain')
+  }).toPromise().then(response => this.saveToFileSystem(response));
+  }
+ 
+  private saveToFileSystem(response) {
+    const body = this.model.toJson();
+    const blob = new Blob( [body], { type: 'application/json' });
+    saveAs(blob, 'filename');
+    alert('Grafo exportado con éxito.');
   }
  }
