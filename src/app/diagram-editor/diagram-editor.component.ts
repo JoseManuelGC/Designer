@@ -69,18 +69,47 @@ export class DiagramEditorComponent implements OnInit {
     this.palette.nodeTemplateMap = this.diagram.nodeTemplateMap;
 
     // initialize contents of Palette
-    this.palette.model.nodeDataArray =
-      [
-        { text: "Alpha", color: "lightblue" },
-        { text: "Beta", color: "orange" },
-        { text: "Gamma", color: "lightgreen" },
-        { text: "Delta", color: "pink" },
-        { text: "Epsilon", color: "yellow" }
-      ];
+    this.palette.model.nodeDataArray = [];
   }
 
   ngOnInit() {
     this.diagram.div = this.diagramRef.nativeElement;
     this.palette.div = this.paletteRef.nativeElement;
+  }
+  importNodes($event){
+    let files = $event.currentTarget.files[0];
+    let imgPromise = this.getFileBlob(files);
+    imgPromise.then(blob => {
+      this.asignarMapa(blob);
+    });
+  }
+
+  getFileBlob(file) {
+
+    var reader = new FileReader();
+    return new Promise(function(resolve, reject){
+
+      reader.onload = (function(theFile) {
+        return function(e) {
+             resolve(e.target.result);
+        };
+      })(file);
+
+      reader.readAsDataURL(file);
+
+    });
+ 
+  }
+  asignarMapa(blob) {
+    let json: any;
+    const map = atob(blob.split(',')[1]);
+    const parser = new DOMParser();
+    const fin = JSON.parse(map);
+    ;
+    /*const xml = parser.parseFromString(map, 'application/xml');
+    json = this.xmlToJson(xml);*/
+
+  
+    this.palette.model.nodeDataArray = fin.Nodes;
   }
 }

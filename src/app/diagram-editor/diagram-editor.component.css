@@ -19,3 +19,11 @@
     width: 19%;
     height: calc(100vh - 110px);
   }
+  .import{
+    margin-top: 12px;
+    margin-left: 78px;
+    font-size: 23px;
+    width: 100%;
+     max-width: 500px;
+     box-sizing: border-box;
+  }

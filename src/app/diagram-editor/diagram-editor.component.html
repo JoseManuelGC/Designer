@@ -2,3 +2,6 @@
     <div #paletteDiv class="paletteDiv"></div>
     <div #diagramDiv class="diagramDiv"></div>
   </div>
+  <div>
+      <input type="file" accept=".json" class="btn btn-info import" (change)="importNodes($event)" name="Importar Nodos">
+  </div>
