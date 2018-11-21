@@ -23,8 +23,7 @@ export class AppComponent {
   model = new go.GraphLinksModel(
     [
     ],
-    [
-    ]);
+ [] );
 
   @ViewChild('text')
 
@@ -107,5 +106,8 @@ export class AppComponent {
     const blob = new Blob( [body], { type: 'application/json' });
     saveAs(blob, 'Graph');
     alert('Grafo exportado con éxito.');
+  }
+  deleteDetail($event){
+   // console.log($event);
   }
  }

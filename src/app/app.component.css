@@ -1,7 +1,11 @@
 .buttonExport{
-    margin-top: -52px;
-    text-align: center;
+    margin-left: 4%;
+    margin-top: 1%;
+    text-align: initial;
 }
 .export{
     font-size: 23px;
+}
+.form_detail{
+    text-align: center;
 }

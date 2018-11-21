@@ -3,18 +3,20 @@
   <app-diagram-editor
    [model]="model"
    (nodeSelected)="showDetails($event)"
-   (modelChanged)="onModelChanged($event)">
+   (modelChanged)="onModelChanged($event)"
+   (nodeDeleted)="deleteDetail($event)">
   </app-diagram-editor>
+  <div class="form_detail">
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
     Node Details:
     <div><label>Key: </label>{{node.key}}</div>
-    <div><label>Text: </label><input [(ngModel)]="data.text" name="text"></div>
-    <div><label>Color: </label><input [(ngModel)]="data.color" name="color"></div>
-    <div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div>
+    <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color"></div>
+    <!--div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div-->
     <div><label># Links: </label>{{node.linksConnected.count}}</div>
-    <button type="submit">Commit Details</button>
-    <button (click)="onCancelChanges()">Cancel Changes</button>
+    <button type="submit">Cambiar Detalles</button>
+    <button (click)="onCancelChanges()">Cancelar Cambios</button>
   </form>
+</div>
 </div>
 
 <div class="buttonExport">

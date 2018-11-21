@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import * as go from 'gojs';
-
+import * as _ from 'lodash';
 @Component({
   selector: 'app-diagram-editor',
   templateUrl: './diagram-editor.component.html',
@@ -24,6 +24,9 @@ export class DiagramEditorComponent implements OnInit {
   nodeSelected = new EventEmitter<go.Node|null>();
 
   @Output()
+  nodeDeleted= new EventEmitter<go.Node|null>();
+
+  @Output()
   modelChanged = new EventEmitter<go.ChangedEvent>();
 
   constructor() {
@@ -36,8 +39,11 @@ export class DiagramEditorComponent implements OnInit {
         e => {
           const node = e.diagram.selection.first();
           this.nodeSelected.emit(node instanceof go.Node ? node : null);
+          this.nodeDeleted.emit(node instanceof go.Node ? node : null);
         });
-    this.diagram.addModelChangedListener(e => e.isTransactionFinished && this.modelChanged.emit(e));
+    this.diagram.addModelChangedListener(e => {
+      e.isTransactionFinished && this.modelChanged.emit(e);
+    });
 
     this.diagram.nodeTemplate =
       $(go.Node, "Auto",
@@ -48,21 +54,32 @@ export class DiagramEditorComponent implements OnInit {
             portId: "", cursor: "pointer",
             // allow many kinds of links
             fromLinkable: true, toLinkable: true,
-            fromLinkableSelfNode: true, toLinkableSelfNode: true,
-            fromLinkableDuplicates: true, toLinkableDuplicates: true
+            fromLinkableSelfNode: true, toLinkableSelfNode: false,
+            fromLinkableDuplicates: false, toLinkableDuplicates: false
           }, 
           new go.Binding("fill", "color")),
         $(go.TextBlock,
-          { margin: 8, editable: true },
+          { margin: 8, editable: false },
           new go.Binding("text").makeTwoWay())
       );
 
     this.diagram.linkTemplate =
-      $(go.Link,
-        // allow relinking
-        { relinkableFrom: false, relinkableTo: false },
-        $(go.Shape),
-        $(go.Shape, { toArrow: "" })
+    $(go.Link,  // the whole link panel
+      $(go.Shape,  // the link shape
+        { stroke: "black" }),
+      $(go.Shape,  // the arrowhead
+        { toArrow: "", stroke: null }),
+      $(go.Panel, "Auto",
+        $(go.Shape,  // the label background, which becomes transparent around the edges
+          { fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240, 0)", 0.3: "rgb(240, 240, 240, 0)", 1: "rgba(240, 240, 240, 0)" }),
+            stroke: null }),
+        $(go.TextBlock,  // the label text
+          { textAlign: "center",
+            font: "10pt helvetica, arial, sans-serif",
+            stroke: "#555555",
+            margin: 4 },
+          new go.Binding("text", "text"))
+      )
       );
 
     this.palette = new go.Palette();
@@ -104,12 +121,16 @@ export class DiagramEditorComponent implements OnInit {
     let json: any;
     const map = atob(blob.split(',')[1]);
     const parser = new DOMParser();
-    const fin = JSON.parse(map);
-    ;
+    let fin;
+    try {
+      fin = JSON.parse(map);
+      this.palette.model.nodeDataArray = fin.Nodes;
+    } catch(e){
+      alert('La estructura del archivo no cumple los requisitos');
+    }
     /*const xml = parser.parseFromString(map, 'application/xml');
     json = this.xmlToJson(xml);*/
 
   
-    this.palette.model.nodeDataArray = fin.Nodes;
   }
 }

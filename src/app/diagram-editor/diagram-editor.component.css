@@ -1,7 +1,7 @@
 .diagramsPanel {
     width:100%;
     white-space:nowrap;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 191px);
   }
   
   .diagramDiv {
@@ -9,7 +9,7 @@
     display: inline-block;
     vertical-align: top;
     width: 80%;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 191px);
   }
   
   .paletteDiv {
@@ -17,13 +17,13 @@
     display: inline-block;
     vertical-align: top;
     width: 19%;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 191px);
   }
   .import{
-    margin-top: 12px;
-    margin-left: 78px;
-    font-size: 23px;
+    margin-top: 9%;
+    margin-left: 17%;
+    font-size: 15px;
     width: 100%;
-     max-width: 500px;
-     box-sizing: border-box;
+    max-width: 100%;
+    box-sizing: border-box;
   }
