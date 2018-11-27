@@ -54,7 +54,7 @@ export class DiagramEditorComponent implements OnInit {
             portId: "", cursor: "pointer",
             // allow many kinds of links
             fromLinkable: true, toLinkable: true,
-            fromLinkableSelfNode: true, toLinkableSelfNode: false,
+            fromLinkableSelfNode: false, toLinkableSelfNode: false,
             fromLinkableDuplicates: false, toLinkableDuplicates: false
           }, 
           new go.Binding("fill", "color")),
