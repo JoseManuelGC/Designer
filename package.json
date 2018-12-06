@@ -26,6 +26,7 @@
     "lodash": "^4.17.11",
     "rxjs": "^6.3.3",
     "unibabel": "^2.1.7",
+    "utf8": "^3.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

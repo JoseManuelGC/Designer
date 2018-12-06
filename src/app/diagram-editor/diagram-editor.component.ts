@@ -29,6 +29,9 @@ export class DiagramEditorComponent implements OnInit {
   @Output()
   modelChanged = new EventEmitter<go.ChangedEvent>();
 
+  @Output() onGraph = new EventEmitter<any>();
+
+
   constructor() {
     const $ = go.GraphObject.make;
     this.diagram = new go.Diagram();
@@ -53,7 +56,7 @@ export class DiagramEditorComponent implements OnInit {
             fill: "white", strokeWidth: 0,
             portId: "", cursor: "pointer",
             // allow many kinds of links
-            fromLinkable: true, toLinkable: true,
+            fromLinkable: true, toLinkable: true , 
             fromLinkableSelfNode: false, toLinkableSelfNode: false,
             fromLinkableDuplicates: false, toLinkableDuplicates: false
           }, 
@@ -64,11 +67,9 @@ export class DiagramEditorComponent implements OnInit {
       );
 
     this.diagram.linkTemplate =
-    $(go.Link,  // the whole link panel
+    $(go.Link, // the whole link panel
       $(go.Shape,  // the link shape
-        { stroke: "black" }),
-      $(go.Shape,  // the arrowhead
-        { toArrow: "", stroke: null }),
+        { stroke: "", }),
       $(go.Panel, "Auto",
         $(go.Shape,  // the label background, which becomes transparent around the edges
           { fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240, 0)", 0.3: "rgb(240, 240, 240, 0)", 1: "rgba(240, 240, 240, 0)" }),
@@ -91,7 +92,14 @@ export class DiagramEditorComponent implements OnInit {
 
   ngOnInit() {
     this.diagram.div = this.diagramRef.nativeElement;
-    this.palette.div = this.paletteRef.nativeElement;
+   this.palette.div = this.paletteRef.nativeElement;
+  }
+  changePaleta($event, node){
+    $event.pop();
+    $event.pop();
+    $event.pop();
+    this.palette.model.nodeDataArray = $event;
+    
   }
   importNodes($event){
     let files = $event.currentTarget.files[0];
@@ -119,12 +127,15 @@ export class DiagramEditorComponent implements OnInit {
   }
   asignarMapa(blob) {
     let json: any;
-    const map = atob(blob.split(',')[1]);
+    const map = decodeURIComponent(atob(blob.split(',')[1]).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
     const parser = new DOMParser();
     let fin;
     try {
       fin = JSON.parse(map);
       this.palette.model.nodeDataArray = fin.Nodes;
+      this.onGraph.emit(fin.Nodes);
     } catch(e){
       alert('La estructura del archivo no cumple los requisitos');
     }

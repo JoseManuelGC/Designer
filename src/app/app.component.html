@@ -4,7 +4,8 @@
    [model]="model"
    (nodeSelected)="showDetails($event)"
    (modelChanged)="onModelChanged($event)"
-   (nodeDeleted)="deleteDetail($event)">
+   (nodeDeleted)="deleteDetail($event)"
+   (onGraph)="graph($event)">
   </app-diagram-editor>
   <div class="form_detail">
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">

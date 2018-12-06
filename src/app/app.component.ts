@@ -1,10 +1,11 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as go from 'gojs';
 import * as _ from 'lodash';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { FileService } from './file.service';
 import {saveAs} from 'file-saver';
+import { DiagramEditorComponent } from './diagram-editor/diagram-editor.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,9 +25,12 @@ export class AppComponent {
     [
     ],
  [] );
+ 
 
+ nodesModelPaleta = [];
+ nodesModificadoPaleta = [];
+ @ViewChild(DiagramEditorComponent) diagramModel: DiagramEditorComponent;
   @ViewChild('text')
-
   data: any;
   node: go.Node;
 
@@ -38,7 +42,22 @@ export class AppComponent {
         text: node.data.text,
         color: node.data.color
       };
+      if (this.nodesModelPaleta.find(t => t.text === node.data.text)){
+       const nodeRemove = this.nodesModelPaleta.find(t => t.text === node.data.text);
+       const index = this.nodesModelPaleta.indexOf(nodeRemove);
+       this.nodesModelPaleta.splice(index, 1);
+       this.nodesModificadoPaleta.push(nodeRemove);
+       this.diagramModel.changePaleta(this.nodesModelPaleta, nodeRemove);
+      }
     } else {
+      
+      if (this.data && this.nodesModificadoPaleta.find(t => t.text === this.data.text)){
+          const nodeRemove_2 = this.nodesModificadoPaleta.find(t => t.text === this.data.text);
+          const indes_2 = this.nodesModificadoPaleta.indexOf(nodeRemove_2);
+          this.nodesModificadoPaleta.splice(indes_2, 1);
+          this.nodesModelPaleta.push(nodeRemove_2);
+          
+      }
       this.data = null;
     }
   }
@@ -55,6 +74,9 @@ export class AppComponent {
     }
   }
 
+  graph($event){
+    this.nodesModelPaleta = $event;
+  }
   onCancelChanges() {
     // wipe out anything the user may have entered
     this.showDetails(this.node);
