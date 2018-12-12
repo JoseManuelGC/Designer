@@ -31,7 +31,6 @@ export class DiagramEditorComponent implements OnInit {
 
   @Output() onGraph = new EventEmitter<any>();
 
-
   constructor() {
     const $ = go.GraphObject.make;
     this.diagram = new go.Diagram();

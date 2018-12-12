@@ -1,12 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
+  <div class="panel">
   <app-diagram-editor
    [model]="model"
    (nodeSelected)="showDetails($event)"
    (modelChanged)="onModelChanged($event)"
    (nodeDeleted)="deleteDetail($event)"
    (onGraph)="graph($event)">
-  </app-diagram-editor>
+  </app-diagram-editor></div>
   <div class="form_detail">
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
     Node Details:
@@ -18,9 +19,9 @@
     <button (click)="onCancelChanges()">Cancelar Cambios</button>
   </form>
 </div>
-</div>
-
 <div class="buttonExport">
    
-<button type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
+    <button type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
+    </div>
 </div>
+
