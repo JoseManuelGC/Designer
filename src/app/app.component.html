@@ -19,9 +19,15 @@
     <button (click)="onCancelChanges()">Cancelar Cambios</button>
   </form>
 </div>
-<div class="buttonExport">
-   
+<div *ngIf="model.nodeDataArray.length > 0" class="button_limpiar">
+  <button type="button" class="btn btn-success" (click)="limpiarGrafo($event)">Eliminar Grafo Completo</button>
+</div>
+<!--div *ngIf="model.nodeDataArray.length === 0" class="button_MoverTodos">
+    <button type="button" class="btn btn-success" (click)="moverTodosNodos($event)" >Mover todos los nodos al diseñador</button>
+  </div-->
+<div *ngIf="model.nodeDataArray.length > 0" class="buttonExport">
     <button type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
     </div>
+
 </div>
 

@@ -11,7 +11,7 @@
 }
 .form_detail{
     width: 20%;
-    height: 80%;
+    height: 40%;
     float: right;
     margin-top: 10%;
 }
@@ -19,4 +19,18 @@
     width: 80%;
     height: 80%;
     float: left;
+}
+.button_limpiar{
+
+    width: 20%;
+    height: 20%;
+    float: right;
+    margin-top: 5%;
+}
+.button_MoverTodos{
+
+    width: 20%;
+    height: 20%;
+    float: right;
+    margin-top: 5%;
 }

@@ -7,6 +7,7 @@ import * as _ from 'lodash';
   styleUrls: ['./diagram-editor.component.css']
 })
 export class DiagramEditorComponent implements OnInit {
+  public nodesRemovePalette = [];
   private diagram: go.Diagram = new go.Diagram();
   private palette: go.Palette = new go.Palette();
 
@@ -100,17 +101,35 @@ export class DiagramEditorComponent implements OnInit {
   ngOnInit() {
     this.diagram.div = this.diagramRef.nativeElement;
    this.palette.div = this.paletteRef.nativeElement;
-   this.changeLinkNodes('');
   }
-  changeLinkNodes($event){
-    this.palette.model;
+  changePaleta(type, node, grafoCompleto, moverTodos?){
+    if(type === 'Eliminar' && !grafoCompleto && !moverTodos){
+      const remove = _.filter(this.palette.model.nodeDataArray, t=>{
+        return t.text === node.$d.text
+      });
+      if(remove[0]){
+        this.nodesRemovePalette.push(remove[0]);
+        this.palette.model.removeNodeData(remove[0]);
+      }
+    } else if (type === 'Añadir'){
+      const add = _.filter(this.nodesRemovePalette, t=>{
+        return t.text === node.$d.text
+      });
+      if (add[0]){
+        this.palette.model.addNodeData(add[0]);
+        const index = this.nodesRemovePalette.indexOf(add[0]);
+        this.nodesRemovePalette.splice(index,1);
+      }
+    } else if (type === 'Añadir Todos'){
+      this.palette.model.addNodeDataCollection(this.nodesRemovePalette);
+      this.nodesRemovePalette = [];
+    }
+   
   }
-  changePaleta($event, node){
-    $event.pop();
-    $event.pop();
-    $event.pop();
-    this.palette.model.nodeDataArray = $event;
-    
+  returnPallete(){
+    this.nodesRemovePalette = this.palette.model.nodeDataArray;
+    this.palette.model.nodeDataArray = [];
+    return this.nodesRemovePalette ;
   }
   importNodes($event){
     let files = $event.currentTarget.files[0];

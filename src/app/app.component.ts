@@ -13,6 +13,9 @@ import { DiagramEditorComponent } from './diagram-editor/diagram-editor.componen
   providers:[FileService]
 })
 export class AppComponent {
+  public grafoCompleto: Boolean = false;
+  public moverTodos: Boolean = false;
+  public nodeSelect;
   imageShown: boolean;
   currentProfileImage: any;
   attachmentList:any = [];
@@ -25,7 +28,6 @@ export class AppComponent {
     [
     ],
  [] );
- @ViewChild('child') child:DiagramEditorComponent;
  nodesModelPaleta = [];
  nodesModificadoPaleta = [];
  @ViewChild(DiagramEditorComponent) diagramModel: DiagramEditorComponent;
@@ -40,22 +42,12 @@ export class AppComponent {
         text: node.data.text,
         color: node.data.color
       };
-      if (this.nodesModelPaleta.find(t => t.text === node.data.text)){
-       const nodeRemove = this.nodesModelPaleta.find(t => t.text === node.data.text);
-       const index = this.nodesModelPaleta.indexOf(nodeRemove);
-       this.nodesModelPaleta.splice(index, 1);
-       this.nodesModificadoPaleta.push(nodeRemove);
-       this.diagramModel.changePaleta(this.nodesModelPaleta, nodeRemove);
-      }
+      this.diagramModel.changePaleta('Eliminar',this.node, this.grafoCompleto, this.moverTodos);
+      this.nodeSelect = node;
+      this.grafoCompleto = false;
+      this.moverTodos = false;
     } else {
-      
-      if (this.data && this.nodesModificadoPaleta.find(t => t.text === this.data.text)){
-          const nodeRemove_2 = this.nodesModificadoPaleta.find(t => t.text === this.data.text);
-          const indes_2 = this.nodesModificadoPaleta.indexOf(nodeRemove_2);
-          this.nodesModificadoPaleta.splice(indes_2, 1);
-          this.nodesModelPaleta.push(nodeRemove_2);
-          
-      }
+      this.diagramModel.changePaleta('Añadir',this.nodeSelect, null);
       this.data = null;
     }
   }
@@ -148,5 +140,18 @@ export class AppComponent {
   }
   deleteDetail($event){
    // console.log($event);
+  }
+  limpiarGrafo($event){
+    this.diagramModel.changePaleta('Añadir Todos', null, null);
+    this.nodeSelect = null;
+    this.grafoCompleto = true;
+    this.model.linkDataArray = [];
+    this.model.nodeDataArray = [];
+  }
+  moverTodosNodos($event){
+   const palette= this.diagramModel.returnPallete();
+   this.model.nodeDataArray = palette;
+   this.moverTodos = true;
+
   }
  }
