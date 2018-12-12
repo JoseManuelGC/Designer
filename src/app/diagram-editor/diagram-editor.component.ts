@@ -19,7 +19,7 @@ export class DiagramEditorComponent implements OnInit {
   @Input()
   get model(): go.Model { return this.diagram.model; }
   set model(val: go.Model) { this.diagram.model = val; }
-
+ 
   @Output()
   nodeSelected = new EventEmitter<go.Node|null>();
 
@@ -30,13 +30,15 @@ export class DiagramEditorComponent implements OnInit {
   modelChanged = new EventEmitter<go.ChangedEvent>();
 
   @Output() onGraph = new EventEmitter<any>();
-
   constructor() {
     const $ = go.GraphObject.make;
     this.diagram = new go.Diagram();
     this.diagram.initialContentAlignment = go.Spot.Center;
     this.diagram.allowDrop = true;  // necessary for dragging from Palette
     this.diagram.undoManager.isEnabled = true;
+    this.diagram.allowLink = true;
+    this.diagram.allowRelink = false;
+    this.diagram.allowUndo = true;
     this.diagram.addDiagramListener("ChangedSelection",
         e => {
           const node = e.diagram.selection.first();
@@ -66,18 +68,24 @@ export class DiagramEditorComponent implements OnInit {
       );
 
     this.diagram.linkTemplate =
-    $(go.Link, // the whole link panel
+    $(go.Link, 
+      {
+                        relinkableFrom: false,
+                        relinkableTo: false,
+                    }, // the whole link panel
       $(go.Shape,  // the link shape
         { stroke: "", }),
       $(go.Panel, "Auto",
         $(go.Shape,  // the label background, which becomes transparent around the edges
           { fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240, 0)", 0.3: "rgb(240, 240, 240, 0)", 1: "rgba(240, 240, 240, 0)" }),
-            stroke: null }),
+            stroke: null,
+           }),
         $(go.TextBlock,  // the label text
           { textAlign: "center",
             font: "10pt helvetica, arial, sans-serif",
             stroke: "#555555",
-            margin: 4 },
+            margin: 4,
+            },
           new go.Binding("text", "text"))
       )
       );
@@ -92,6 +100,10 @@ export class DiagramEditorComponent implements OnInit {
   ngOnInit() {
     this.diagram.div = this.diagramRef.nativeElement;
    this.palette.div = this.paletteRef.nativeElement;
+   this.changeLinkNodes('');
+  }
+  changeLinkNodes($event){
+    this.palette.model;
   }
   changePaleta($event, node){
     $event.pop();

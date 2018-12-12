@@ -25,15 +25,13 @@ export class AppComponent {
     [
     ],
  [] );
- 
-
+ @ViewChild('child') child:DiagramEditorComponent;
  nodesModelPaleta = [];
  nodesModificadoPaleta = [];
  @ViewChild(DiagramEditorComponent) diagramModel: DiagramEditorComponent;
   @ViewChild('text')
   data: any;
   node: go.Node;
-
   showDetails(node: go.Node | null) {
     this.node = node;
     if (node) {
@@ -83,6 +81,25 @@ export class AppComponent {
   }
 
   onModelChanged(c: go.ChangedEvent) {
+    const model: any = c;
+    if (model && model.Ls && model.Ls.Sb === 'Linking'){
+      let to;
+      let from;
+      const self = this;
+      _.forEach(model.model.linkDataArray, link => {
+        _.forEach(model.model.linkDataArray, t =>{ 
+          if (t.from === link.to && link.from === t.to){
+            to = t.to;
+            from  = t.from;
+          }  
+        });
+      });
+      const remove = _.filter(model.model.linkDataArray, t=>{
+        return t.to === to && t.from === from
+      });
+      this.model.removeLinkData(remove[0]);
+      this.model.linkDataArray = model.model.linkDataArray;
+    }
     // who knows what might have changed in the selected node and data?
     this.showDetails(this.node);
   }

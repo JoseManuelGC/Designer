@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <div class="panel">
-  <app-diagram-editor
+  <app-diagram-editor #child
    [model]="model"
    (nodeSelected)="showDetails($event)"
    (modelChanged)="onModelChanged($event)"
