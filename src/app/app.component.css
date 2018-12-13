@@ -1,10 +1,8 @@
 .buttonExport{
-    margin-left: 4%;
-    margin-top: 1%;
-    text-align: initial;
-    width: 100%;
-    height: 20%;
-    float: left;
+    width: 20%;
+    height: 10%;
+    float: right;
+    margin-top: 5%;
 }
 .export{
     font-size: 23px;
@@ -23,7 +21,7 @@
 .button_limpiar{
 
     width: 20%;
-    height: 20%;
+    height: 10%;
     float: right;
     margin-top: 5%;
 }
@@ -33,4 +31,23 @@
     height: 20%;
     float: right;
     margin-top: 5%;
+}
+.leyenda{
+    width: 358px;
+    height: 189px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 5%;
+    border: 1px solid black;
+
+}
+.texto_leyenda{
+    margin-right: 6%;
+    margin-left: 6%;
+    font-family: fantasy;
+    margin-top: 2%;
+    margin-bottom: -1%;
+}
+.detail_node{
+    visibility: hidden;
 }

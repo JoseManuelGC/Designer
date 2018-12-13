@@ -103,7 +103,7 @@ export class DiagramEditorComponent implements OnInit {
    this.palette.div = this.paletteRef.nativeElement;
   }
   changePaleta(type, node, grafoCompleto, moverTodos?){
-    if(type === 'Eliminar' && !grafoCompleto && !moverTodos){
+    if(type === 'Eliminar' && !grafoCompleto && !moverTodos && node){
       const remove = _.filter(this.palette.model.nodeDataArray, t=>{
         return t.text === node.$d.text
       });
@@ -111,7 +111,7 @@ export class DiagramEditorComponent implements OnInit {
         this.nodesRemovePalette.push(remove[0]);
         this.palette.model.removeNodeData(remove[0]);
       }
-    } else if (type === 'Añadir'){
+    } else if (type === 'Añadir' && node){
       const add = _.filter(this.nodesRemovePalette, t=>{
         return t.text === node.$d.text
       });
@@ -119,6 +119,8 @@ export class DiagramEditorComponent implements OnInit {
         this.palette.model.addNodeData(add[0]);
         const index = this.nodesRemovePalette.indexOf(add[0]);
         this.nodesRemovePalette.splice(index,1);
+      } else {
+        this.palette.model.addNodeData(node.$d);
       }
     } else if (type === 'Añadir Todos'){
       this.palette.model.addNodeDataCollection(this.nodesRemovePalette);

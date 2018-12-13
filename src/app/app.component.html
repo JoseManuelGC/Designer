@@ -12,22 +12,30 @@
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
     Node Details:
     <div><label>Key: </label>{{node.key}}</div>
-    <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color"></div>
+    <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color" ></div>
     <!--div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div-->
     <div><label># Links: </label>{{node.linksConnected.count}}</div>
-    <button type="submit">Cambiar Detalles</button>
-    <button (click)="onCancelChanges()">Cancelar Cambios</button>
+    <button type="submit" class="btn btn-success">Cambiar Detalles</button>
+    <!--button (click)="onCancelChanges()">Cancelar Cambios</button-->
   </form>
 </div>
+<div>
 <div *ngIf="model.nodeDataArray.length > 0" class="button_limpiar">
   <button type="button" class="btn btn-success" (click)="limpiarGrafo($event)">Eliminar Grafo Completo</button>
 </div>
-<!--div *ngIf="model.nodeDataArray.length === 0" class="button_MoverTodos">
-    <button type="button" class="btn btn-success" (click)="moverTodosNodos($event)" >Mover todos los nodos al diseñador</button>
-  </div-->
 <div *ngIf="model.nodeDataArray.length > 0" class="buttonExport">
-    <button type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
-    </div>
+  <button type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
+  </div>
+<div *ngIf="model.nodeDataArray.length === 0" class="button_MoverTodos">
+    <button type="button" class="btn btn-success" (click)="moverTodosNodos($event)" >Mover todos los nodos al diseñador</button>
+  </div>
+  <div *ngIf="model.nodeDataArray.length > 0" class="leyenda">
+    <div class="row texto_leyenda"><p> - Seleccionar un color distinto para los nodos más prioritarios.</p></div>
+    <div class="row texto_leyenda"><p> - El color del nodo principal tiene que ser distinto al resto de nodos.</p></div>
+    <div class="row texto_leyenda"><p> - Los nodos secundarios deben llevar el mismo color.</p></div>
+  
+  </div>
 
+</div>
 </div>
 
