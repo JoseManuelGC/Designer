@@ -42,9 +42,12 @@ export class DiagramEditorComponent implements OnInit {
     this.diagram.allowUndo = true;
     this.diagram.addDiagramListener("ChangedSelection",
         e => {
-          const node = e.diagram.selection.first();
-          this.nodeSelected.emit(node instanceof go.Node ? node : null);
-          this.nodeDeleted.emit(node instanceof go.Node ? node : null);
+          const pasar: any = e;
+          if (pasar.aa.Bv !== 'pointer' ){
+            const node = e.diagram.selection.first();
+            this.nodeSelected.emit(node instanceof go.Node ? node : null);
+            this.nodeDeleted.emit(node instanceof go.Node ? node : null);
+          }
         });
     this.diagram.addModelChangedListener(e => {
       e.isTransactionFinished && this.modelChanged.emit(e);
@@ -119,7 +122,11 @@ export class DiagramEditorComponent implements OnInit {
         this.palette.model.addNodeData(add[0]);
         const index = this.nodesRemovePalette.indexOf(add[0]);
         this.nodesRemovePalette.splice(index,1);
-      } else {
+      } else if (_.filter(this.nodesRemovePalette, t=>{
+        return t.text === node.$d.text
+      }).length === 0 && _.filter(this.palette.model.nodeDataArray, t=>{
+        return t.text === node.$d.text
+      }).length === 0){
         this.palette.model.addNodeData(node.$d);
       }
     } else if (type === 'Añadir Todos'){

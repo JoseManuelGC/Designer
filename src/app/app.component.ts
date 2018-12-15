@@ -37,6 +37,7 @@ export class AppComponent {
   showDetails(node: go.Node | null) {
     this.node = node;
     if (node) {
+      
       // copy the editable properties into a separate Object
       this.data = {
         text: node.data.text,
@@ -47,7 +48,7 @@ export class AppComponent {
       this.grafoCompleto = false;
       this.moverTodos = false;
     } else {
-      this.diagramModel.changePaleta('Añadir',this.nodeSelect, null);
+        this.diagramModel.changePaleta('Añadir',this.nodeSelect, null);
       this.data = null;
     }
   }
