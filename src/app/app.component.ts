@@ -151,6 +151,19 @@ export class AppComponent {
   }
   moverTodosNodos($event){
    const palette= this.diagramModel.returnPallete();
+   let fila = 0;
+   let columna = 0
+   for (let i = 0; i< palette.length;i++){
+     if (i % 2 === 1){ // impar
+       palette[i].loc = "" + fila + " " + columna + "";
+        fila = 0;
+        columna += 40;
+     } else { // par
+      palette[i].loc = "" + fila + " " + columna + "";
+      fila = -200;
+      columna = columna;
+     }
+   }
    this.model.nodeDataArray = palette;
    this.moverTodos = true;
 
