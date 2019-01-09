@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <div class="panel">
+  <div class="panel col-md-9">
   <app-diagram-editor #child
    [model]="model"
    (nodeSelected)="showDetails($event)"
@@ -11,10 +11,10 @@
   <div class="form_detail">
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
     Node Details:
-    <div><label>Key: </label>{{node.key}}</div>
+    <div><label>Texto: </label><span class="span_detail"> {{node.$d.text}}</span></div>
     <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color" ></div>
     <!--div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div-->
-    <div><label># Links: </label>{{node.linksConnected.count}}</div>
+    <div><label># Links: </label><span class="span_detail"> {{node.linksConnected.count}}</span></div>
     <button type="submit" class="btn btn-info">Cambiar Detalles</button>
     <!--button (click)="onCancelChanges()">Cancelar Cambios</button-->
   </form>
@@ -30,9 +30,7 @@
     <button *ngIf="model.nodeDataArray.length === 0" type="button" class="btn btn-success" (click)="moverTodosNodos($event)" >Mover todos los nodos al diseñador</button>
   </div>
   <div class="leyenda">
-    <div *ngIf="model.nodeDataArray.length > 0"  class="row texto_leyenda"><p> - Seleccionar un color distinto para los nodos más prioritarios.</p></div>
-    <div *ngIf="model.nodeDataArray.length > 0"  class="row texto_leyenda"><p> - El color del nodo principal tiene que ser distinto al resto de nodos.</p></div>
-    <div  *ngIf="model.nodeDataArray.length > 0" class="row texto_leyenda"><p> - Los nodos secundarios deben llevar el mismo color.</p></div>
+    <div *ngIf="model.nodeDataArray.length > 0"  class="row texto_leyenda"><p> - Completar el grafo con los nodos de la paleta (Parte izquierda de la ventana)</p></div>
   
   </div>
 
