@@ -13,6 +13,7 @@ import { DiagramEditorComponent } from './diagram-editor/diagram-editor.componen
   providers:[FileService]
 })
 export class AppComponent {
+  public load:Boolean = false;
   public grafoCompleto: Boolean = false;
   public moverTodos: Boolean = false;
   public nodeSelect;
@@ -167,5 +168,9 @@ export class AppComponent {
    this.model.nodeDataArray = palette;
    this.moverTodos = true;
 
+  }
+  importNodes($event){
+    this.diagramModel.importNodes($event);
+    this.load = true;
   }
  }

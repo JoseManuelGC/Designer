@@ -1,28 +1,70 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
+    <div class="row header_title" [ngClass]="{'noVisibleMenu': visibleSignin}">
+        <img src="assets/logoUCLM.png" alt="image" style="width: 60px;
+        height: 60px;
+        float: right;
+        margin-top: 0.5%;
+        margin-left: 1%;
+        " id="imgUCLM">
+        <img src="assets/logoEsi.jpg" alt="image" style="width: 200px;
+        height: 60px;
+        float: right;
+        margin-top: 0.5%;
+        margin-left: 1%;
+        " id="imgESI">
+        
+        <h1 class="mat-h1">DISEÑADOR</h1>
+        </div>
   <div class="panel col-md-9">
-  <app-diagram-editor #child
+      <div class="row menu" [ngClass]="{'noVisibleMenu': visibleSignin}">
+          <div class="button_menu  import-design" > <i class="fa fa-cloud-upload"></i>
+              <input type="file" accept=".json" class="import" (change)="importNodes($event)" style="margin-top: 6px;">
+            </div>
+          <button *ngIf="model.nodeDataArray.length > 0" type="input" class="button_menu" (click)="limpiarGrafo($event)" style="margin-left: 2%;"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar Grafo Completo</button>
+          <button *ngIf="model.nodeDataArray.length === 0 && load" type="input" class="button_menu" (click)="moverTodosNodos($event)" style="margin-left: 2%;"><i class="fa fa-arrows" aria-hidden="true"></i> Mover todos los nodos al diseñador</button>
+  
+          </div>
+        <div class="node_selected">
+          <div class="form_detail">
+                  <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
+                    Node Details:
+                    <div><label>Texto: </label><span class="span_detail"> {{node.$d.text}}</span></div>
+                    <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color" ></div>
+                    <!--div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div-->
+                    <div><label># Links: </label><span class="span_detail"> {{node.linksConnected.count}}</span></div>
+                    <button type="submit" >Cambiar Detalles</button>
+                    <button type="submit" (click)="onCancelChanges()" style="display: block;">Cancelar Cambios</button>
+                  </form>
+                </div>
+                <hr *ngIf="node" style="    background: white;
+    margin-top: 217px;">
+            <div class="button-export-design ">
+                <button *ngIf="model.nodeDataArray.length > 0" type="button" class="export" (click)="exportDiag($event)"> <i class="fa fa-share-alt" aria-hidden="true"></i> Exportar Grafo</button>
+  
+            </div>
+            
+          </div>
+          
+  <app-diagram-editor #child class="grid-container"
    [model]="model"
    (nodeSelected)="showDetails($event)"
    (modelChanged)="onModelChanged($event)"
    (nodeDeleted)="deleteDetail($event)"
    (onGraph)="graph($event)">
   </app-diagram-editor></div>
-  <div class="form_detail">
+  <!--div class="form_detail">
   <form *ngIf="node" #form="ngForm" (ngSubmit)="onCommitDetails()">
     Node Details:
     <div><label>Texto: </label><span class="span_detail"> {{node.$d.text}}</span></div>
     <div><label>Color: </label><input  type="color" [(ngModel)]="data.color" name="color" ></div>
-    <!--div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div-->
+    <div><label>Location: </label>{{node.location.x.toFixed(2)}}, {{node.location.y.toFixed(2)}}</div>
     <div><label># Links: </label><span class="span_detail"> {{node.linksConnected.count}}</span></div>
     <button type="submit" class="btn btn-info">Cambiar Detalles</button>
-    <!--button (click)="onCancelChanges()">Cancelar Cambios</button-->
+    <button (click)="onCancelChanges()">Cancelar Cambios</button>
   </form>
-</div>
-<div class="botones">
-<div  class="button_limpiar">
-  <button *ngIf="model.nodeDataArray.length > 0" type="button" class="btn btn-success" (click)="limpiarGrafo($event)">Eliminar Grafo Completo</button>
-</div>
+</div-->
+<!--div class="botones">
 <div  class="buttonExport">
   <button *ngIf="model.nodeDataArray.length > 0" type="button" class="btn btn-success export" (click)="exportDiag($event)">Exportar Grafo</button>
   </div>
@@ -34,6 +76,6 @@
   
   </div>
 
-</div>
+</div-->
 </div>
 
