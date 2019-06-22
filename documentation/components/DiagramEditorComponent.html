@@ -1,0 +1,1330 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>designer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">designer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DiagramEditorComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/diagram-editor/diagram-editor.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-diagram-editor</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./diagram-editor.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./diagram-editor.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#diagram">diagram</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#diagramRef">diagramRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nodesRemovePalette">nodesRemovePalette</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#palette">palette</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#paletteRef">paletteRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#asignarMapa">asignarMapa</a>
+                            </li>
+                            <li>
+                                <a href="#changePaleta">changePaleta</a>
+                            </li>
+                            <li>
+                                <a href="#getFileBlob">getFileBlob</a>
+                            </li>
+                            <li>
+                                <a href="#importNodes">importNodes</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#returnPallete">returnPallete</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#model">model</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modelChanged">modelChanged</a>
+                            </li>
+                            <li>
+                                <a href="#nodeDeleted">nodeDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#nodeSelected">nodeSelected</a>
+                            </li>
+                            <li>
+                                <a href="#onGraph">onGraph</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#model">model</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="model"></a>
+                        <b>model</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>go.Model</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:21</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modelChanged"></a>
+                        <b>modelChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodeDeleted"></a>
+                        <b>nodeDeleted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodeSelected"></a>
+                        <b>nodeSelected</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onGraph"></a>
+                        <b>onGraph</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asignarMapa"></a>
+                    <span class="name">
+                        <b>
+                            asignarMapa
+                        </b>
+                        <a href="#asignarMapa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>asignarMapa(blob)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:167</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>blob</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePaleta"></a>
+                    <span class="name">
+                        <b>
+                            changePaleta
+                        </b>
+                        <a href="#changePaleta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changePaleta(type, node, grafoCompleto, moverTodos?)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>node</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>grafoCompleto</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>moverTodos</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFileBlob"></a>
+                    <span class="name">
+                        <b>
+                            getFileBlob
+                        </b>
+                        <a href="#getFileBlob"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFileBlob(file)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="importNodes"></a>
+                    <span class="name">
+                        <b>
+                            importNodes
+                        </b>
+                        <a href="#importNodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>importNodes($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="returnPallete"></a>
+                    <span class="name">
+                        <b>
+                            returnPallete
+                        </b>
+                        <a href="#returnPallete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>returnPallete()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="diagram"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            diagram</b>
+                            <a href="#diagram"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>go.Diagram</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new go.Diagram()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="diagramRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            diagramRef</b>
+                            <a href="#diagramRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;diagramDiv&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodesRemovePalette"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            nodesRemovePalette</b>
+                            <a href="#nodesRemovePalette"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="palette"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            palette</b>
+                            <a href="#palette"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>go.Palette</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new go.Palette()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paletteRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            paletteRef</b>
+                            <a href="#paletteRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;paletteDiv&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="model"></a>
+                        <span class="name"><b>model</b><a href="#model"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>model(val)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/diagram-editor/diagram-editor.component.ts:22</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>val</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import * as go from &#x27;gojs&#x27;;
+import * as _ from &#x27;lodash&#x27;;
+@Component({
+  selector: &#x27;app-diagram-editor&#x27;,
+  templateUrl: &#x27;./diagram-editor.component.html&#x27;,
+  styleUrls: [&#x27;./diagram-editor.component.css&#x27;]
+})
+export class DiagramEditorComponent implements OnInit {
+  public nodesRemovePalette &#x3D; [];
+  private diagram: go.Diagram &#x3D; new go.Diagram();
+  private palette: go.Palette &#x3D; new go.Palette();
+
+  @ViewChild(&#x27;diagramDiv&#x27;)
+  private diagramRef: ElementRef;
+
+  @ViewChild(&#x27;paletteDiv&#x27;)
+  private paletteRef: ElementRef;
+
+  @Input()
+  get model(): go.Model { return this.diagram.model; }
+  set model(val: go.Model) { this.diagram.model &#x3D; val; }
+ 
+  @Output()
+  nodeSelected &#x3D; new EventEmitter&lt;go.Node|null&gt;();
+
+  @Output()
+  nodeDeleted&#x3D; new EventEmitter&lt;go.Node|null&gt;();
+
+  @Output()
+  modelChanged &#x3D; new EventEmitter&lt;go.ChangedEvent&gt;();
+
+  @Output() onGraph &#x3D; new EventEmitter&lt;any&gt;();
+  constructor() {
+    const $ &#x3D; go.GraphObject.make;
+    this.diagram &#x3D; new go.Diagram();
+    this.diagram.initialContentAlignment &#x3D; go.Spot.Center;
+    this.diagram.allowDrop &#x3D; true;  // necessary for dragging from Palette
+    this.diagram.undoManager.isEnabled &#x3D; true;
+    this.diagram.allowLink &#x3D; true;
+    this.diagram.allowRelink &#x3D; false;
+    this.diagram.allowUndo &#x3D; true;
+    this.diagram.addDiagramListener(&quot;ChangedSelection&quot;,
+        e &#x3D;&gt; {
+          const pasar: any &#x3D; e;
+          if (pasar.aa.Bv !&#x3D;&#x3D; &#x27;pointer&#x27; ){
+            const node &#x3D; e.diagram.selection.first();
+            this.nodeSelected.emit(node instanceof go.Node ? node : null);
+            this.nodeDeleted.emit(node instanceof go.Node ? node : null);
+          }
+        });
+    this.diagram.addModelChangedListener(e &#x3D;&gt; {
+      e.isTransactionFinished &amp;&amp; this.modelChanged.emit(e);
+    });
+
+    this.diagram.nodeTemplate &#x3D;
+      $(go.Node, &quot;Auto&quot;,
+        new go.Binding(&quot;location&quot;, &quot;loc&quot;, go.Point.parse).makeTwoWay(go.Point.stringify),
+        $(go.Shape,
+          {
+            fill: &quot;white&quot;, strokeWidth: 0,
+            portId: &quot;&quot;, cursor: &quot;pointer&quot;,
+            // allow many kinds of links
+            fromLinkable: true, toLinkable: true , 
+            fromLinkableSelfNode: false, toLinkableSelfNode: false,
+            fromLinkableDuplicates: false, toLinkableDuplicates: false
+          }, 
+          new go.Binding(&quot;fill&quot;, &quot;color&quot;)),
+        $(go.TextBlock,
+          { margin: 8, editable: false },
+          new go.Binding(&quot;text&quot;).makeTwoWay())
+      );
+
+    this.diagram.linkTemplate &#x3D;
+    $(go.Link, 
+      {
+                        relinkableFrom: false,
+                        relinkableTo: false,
+                    }, // the whole link panel
+      $(go.Shape,  // the link shape
+        { stroke: &quot;&quot;, }),
+      $(go.Panel, &quot;Auto&quot;,
+        $(go.Shape,  // the label background, which becomes transparent around the edges
+          { fill: $(go.Brush, &quot;Radial&quot;, { 0: &quot;rgb(240, 240, 240, 0)&quot;, 0.3: &quot;rgb(240, 240, 240, 0)&quot;, 1: &quot;rgba(240, 240, 240, 0)&quot; }),
+            stroke: null,
+           }),
+        $(go.TextBlock,  // the label text
+          { textAlign: &quot;center&quot;,
+            font: &quot;10pt helvetica, arial, sans-serif&quot;,
+            stroke: &quot;#555555&quot;,
+            margin: 4,
+            },
+          new go.Binding(&quot;text&quot;, &quot;text&quot;))
+      )
+      );
+
+    this.palette &#x3D; new go.Palette();
+    this.palette.nodeTemplateMap &#x3D; this.diagram.nodeTemplateMap;
+
+    // initialize contents of Palette
+    this.palette.model.nodeDataArray &#x3D; [];
+  }
+
+  ngOnInit() {
+    this.diagram.div &#x3D; this.diagramRef.nativeElement;
+   this.palette.div &#x3D; this.paletteRef.nativeElement;
+  }
+  changePaleta(type, node, grafoCompleto, moverTodos?){
+    if(type &#x3D;&#x3D;&#x3D; &#x27;Eliminar&#x27; &amp;&amp; !grafoCompleto &amp;&amp; !moverTodos &amp;&amp; node){
+      const remove &#x3D; _.filter(this.palette.model.nodeDataArray, t&#x3D;&gt;{
+        return t.text &#x3D;&#x3D;&#x3D; node.$d.text
+      });
+      if(remove[0]){
+        this.nodesRemovePalette.push(remove[0]);
+        this.palette.model.removeNodeData(remove[0]);
+      }
+    } else if (type &#x3D;&#x3D;&#x3D; &#x27;Añadir&#x27; &amp;&amp; node){
+      const add &#x3D; _.filter(this.nodesRemovePalette, t&#x3D;&gt;{
+        return t.text &#x3D;&#x3D;&#x3D; node.$d.text
+      });
+      if (add[0]){
+        this.palette.model.addNodeData(add[0]);
+        const index &#x3D; this.nodesRemovePalette.indexOf(add[0]);
+        this.nodesRemovePalette.splice(index,1);
+      } else if (_.filter(this.nodesRemovePalette, t&#x3D;&gt;{
+        return t.text &#x3D;&#x3D;&#x3D; node.$d.text
+      }).length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; _.filter(this.palette.model.nodeDataArray, t&#x3D;&gt;{
+        return t.text &#x3D;&#x3D;&#x3D; node.$d.text
+      }).length &#x3D;&#x3D;&#x3D; 0){
+        this.palette.model.addNodeData(node.$d);
+      }
+    } else if (type &#x3D;&#x3D;&#x3D; &#x27;Añadir Todos&#x27;){
+      this.palette.model.addNodeDataCollection(this.nodesRemovePalette);
+      this.nodesRemovePalette &#x3D; [];
+    }
+   
+  }
+  returnPallete(){
+    this.nodesRemovePalette &#x3D; this.palette.model.nodeDataArray;
+    this.palette.model.nodeDataArray &#x3D; [];
+    return this.nodesRemovePalette ;
+  }
+  importNodes($event){
+    let files &#x3D; $event.currentTarget.files[0];
+    let imgPromise &#x3D; this.getFileBlob(files);
+    imgPromise.then(blob &#x3D;&gt; {
+      this.asignarMapa(blob);
+    });
+  }
+
+  getFileBlob(file) {
+
+    var reader &#x3D; new FileReader();
+    return new Promise(function(resolve, reject){
+
+      reader.onload &#x3D; (function(theFile) {
+        return function(e) {
+             resolve(e.target.result);
+        };
+      })(file);
+
+      reader.readAsDataURL(file);
+
+    });
+ 
+  }
+  asignarMapa(blob) {
+    let json: any;
+    const map &#x3D; decodeURIComponent(atob(blob.split(&#x27;,&#x27;)[1]).split(&#x27;&#x27;).map(function (c) {
+      return &#x27;%&#x27; + (&#x27;00&#x27; + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(&#x27;&#x27;));
+    const parser &#x3D; new DOMParser();
+    let fin;
+    try {
+      fin &#x3D; JSON.parse(map);
+      this.palette.model.nodeDataArray &#x3D; fin.Nodes;
+      this.onGraph.emit(fin.Nodes);
+    } catch(e){
+      alert(&#x27;La estructura del archivo no cumple los requisitos&#x27;);
+    }
+    /*const xml &#x3D; parser.parseFromString(map, &#x27;application/xml&#x27;);
+    json &#x3D; this.xmlToJson(xml);*/
+
+  
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;diagramsPanel&quot;&gt;
+    &lt;div #paletteDiv class&#x3D;&quot;paletteDiv&quot;&gt;&lt;/div&gt;
+    &lt;div #diagramDiv class&#x3D;&quot;diagramDiv&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!--div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-2 col-lg-3&quot;&gt;
+      &lt;input type&#x3D;&quot;file&quot; accept&#x3D;&quot;.json&quot; class&#x3D;&quot;btn btn-info import&quot; (change)&#x3D;&quot;importNodes($event)&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div--&gt;
+  &lt;!--form #formulario&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;addActivity(formulario)&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+      &lt;input type&#x3D;&quot;file&quot; class&#x3D;&quot;form-control btn btn-info&quot; id&#x3D;&quot;img&quot; name&#x3D;&quot;img&quot;&gt;
+    &lt;/div&gt;
+    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-info&quot;&gt;Subir Archivo&lt;/button&gt;
+  &lt;/form--&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./diagram-editor.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.diagramsPanel {
+    width:100%;
+    white-space:nowrap;
+    height: calc(100vh - 191px);
+  }
+  
+  .diagramDiv {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    height: calc(100vh - 191px);
+  }
+  
+  .paletteDiv {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+    width: 19%;
+    height: calc(100vh - 191px);
+  }
+  .import{
+    margin-top: 9%;
+    margin-left: 17%;
+    font-size: 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="diagramsPanel">    <div #paletteDiv class="paletteDiv"></div>    <div #diagramDiv class="diagramDiv"></div>  </div>  <!--div class="row">      <div class="col-md-2 col-lg-3">      <input type="file" accept=".json" class="btn btn-info import" (change)="importNodes($event)">    </div>  </div-->  <!--form #formulario="ngForm" (ngSubmit)="addActivity(formulario)" autocomplete="off">    <div class="form-group">      <input type="file" class="form-control btn btn-info" id="img" name="img">    </div>    <button type="submit" class="btn btn-info">Subir Archivo</button>  </form--></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DiagramEditorComponent', 'selector': 'app-diagram-editor'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DiagramEditorComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DiagramEditorComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
